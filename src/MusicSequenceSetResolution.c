@@ -1,16 +1,17 @@
 /*!
     @header MusicSequenceSetResolution.c
-    @abstract   <#abstract#>
-    @discussion <#description#>
+    @abstract   Implementation of MusicSequenceSetResolution function.
+    @discussion 
 */
-
 #include <AudioToolbox/MusicPlayer.h>
 
 /*!
  *	@abstract	 Workaround to change MusicSequence resolution.
  * 	@discussion	MusicSequence property kSequenceTrackProperty_TimeResolution is read-only: resolution can be set for file and rea from file.
+ *
+ *	@author Andrea Tassotti
  */
-OSStatus MusicSequenceSetResolution(MusicSequence *inSequence, UInt16 ppq){
+OSStatus MusicSequenceSetResolution(MusicSequence *inSequence, SInt16 ppq){
 	OSStatus err;	
 	CFDataRef tempData;
 

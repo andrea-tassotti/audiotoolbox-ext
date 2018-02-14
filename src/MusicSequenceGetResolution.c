@@ -12,10 +12,9 @@
  *				or set default 480.
  *				Resolution is a read-only SInt16 value that is 
  *				valid only for a tempo track.
- *	kSequenceTrackProperty_TimeResolution
- *
+ *	@author	Andrea Tassotti
  */
-OSStatus MusicSequenceGetResolution(MusicSequence inSequence, UInt16 *outResolution)
+OSStatus MusicSequenceGetResolution(MusicSequence inSequence, SInt16 *outResolution)
 {
 	MusicTrack tempoTrack;
 	
