@@ -25,8 +25,8 @@ OSStatus MusicSequenceSetResolution(MusicSequence *inSequence, SInt16 ppq){
 	if (err != noErr )
 		return err;
 
-	DisposeMusicSequence(*inSequence);
-
+	// DIRTY: without this, events in TempoTrack will be duplicated!
+	err = NewMusicSequence(inSequence);
 
 	err = MusicSequenceFileLoadData (
 									 *inSequence,
