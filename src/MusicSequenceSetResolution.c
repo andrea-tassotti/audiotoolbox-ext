@@ -11,12 +11,20 @@
  *
  *	@author Andrea Tassotti
  */
-OSStatus MusicSequenceSetResolution(MusicSequence *inSequence, SInt16 ppq){
+OSStatus MusicSequenceSetResolution(MusicSequence inSequence, SInt16 ppq){
 	OSStatus err;	
 	CFDataRef tempData;
+	UInt32 ntracks;
+	
+	MusicSequenceGetTrackCount (inSequence, &ntracks);
+	if ( ntracks > 0 )
+	{
+		fprintf(stderr, "MusicSequenceSetResolution: sequence *must* be empty: sequence has %i track(s)\n", ntracks);
+		return -50;
+	}
 
 	err = MusicSequenceFileCreateData (
-									   *inSequence,
+									   inSequence,
 									   kMusicSequenceFile_MIDIType,
 									   0,
 									   ppq,
@@ -25,11 +33,9 @@ OSStatus MusicSequenceSetResolution(MusicSequence *inSequence, SInt16 ppq){
 	if (err != noErr )
 		return err;
 
-	// DIRTY: without this, events in TempoTrack will be duplicated!
-	err = NewMusicSequence(inSequence);
 
 	err = MusicSequenceFileLoadData (
-									 *inSequence,
+									 inSequence,
 									 tempData,
 									 kMusicSequenceFile_MIDIType,
 									 0
