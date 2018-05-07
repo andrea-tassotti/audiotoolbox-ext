@@ -1,6 +1,6 @@
 /*!
  @header MusicSequenceCloneTempoTrack.c
- @abstract   <#abstract#>
+ @abstract   Implementation of MusicSequenceCloneTempoTrack function.
  @discussion <#description#>
  */
 #include <AudioToolbox/MusicPlayer.h>
@@ -9,8 +9,9 @@
     @function
     @abstract   Clone tempo track from sequence to sequence
     @discussion Destination sequence must be empty. Remove  default event from destination at timestamp 0.
-    @param      <#(name) (description)#>
-    @result     <#(description)#>
+    @param      inSequence 	Input sequence
+    @param      outSequence 	Output sequence
+    @result     error
  	@copyright	Andrea Tassotti
 */
 OSStatus MusicSequenceCloneTempoTrack(MusicSequence inSequence, MusicSequence outSequence)

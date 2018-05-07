@@ -6,10 +6,11 @@
 #include <AudioToolbox/MusicPlayer.h>
 
 /*!
+ *	@function
  *	@abstract	 Workaround to change MusicSequence resolution.
  * 	@discussion	MusicSequence property kSequenceTrackProperty_TimeResolution is read-only: resolution can be set for file and rea from file.
  *
- *	@author Andrea Tassotti
+ *	@copyright Andrea Tassotti
  */
 OSStatus MusicSequenceSetResolution(MusicSequence inSequence, SInt16 ppq){
 	OSStatus err;	

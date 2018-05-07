@@ -7,12 +7,13 @@
 #include <AudioToolbox/MusicPlayer.h>
 
 /*!
+ *	@function
  *  @abstract   Get sequence time resolution 
  *  @discussion Get time resolution (PPQ) from sequence properties
  *				or set default 480.
  *				Resolution is a read-only SInt16 value that is 
  *				valid only for a tempo track.
- *	@author	Andrea Tassotti
+ *	@copyright	Andrea Tassotti
  */
 OSStatus MusicSequenceGetResolution(MusicSequence inSequence, SInt16 *outResolution)
 {
